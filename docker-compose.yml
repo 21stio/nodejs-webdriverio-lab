@@ -1,14 +1,16 @@
 version: '2'
 services:
-    webdriverio:
+    lab:
         build: .
         image: webdriverio:latest
+        environment:
+            - SELENIUM_HUB_HOST=hub
+            - SELENIUM_HUB_PORT=4444
         depends_on:
             - chrome
             - firefox
         volumes:
             - .:/opt/webdriverio
-        command: sleep infinity
     hub:
         image: selenium/hub
         ports:
