@@ -31,3 +31,5 @@ services:
             - HUB_PORT_4444_TCP_ADDR=hub
         depends_on:
             - hub
+        volumes:
+            - ./config.json:/opt/selenium/config.json
